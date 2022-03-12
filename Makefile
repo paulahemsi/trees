@@ -26,6 +26,8 @@ HEADER			:=	$(INCLUDES_DIR)btree.tpp\
 					$(INCLUDES_DIR)btree_apply_prefix.tpp\
 					$(INCLUDES_DIR)btree_apply_infix.tpp\
 					$(INCLUDES_DIR)btree_apply_suffix.tpp\
+					$(INCLUDES_DIR)btree_search_item.tpp\
+					$(INCLUDES_DIR)compare.tpp\
 					$(INCLUDES_DIR)print_item.tpp
 
 INCLUDES		:= $(addprefix -I, $(INCLUDES_DIR))

@@ -7,7 +7,7 @@
 template <typename T>
 void print_item(T &item)
 {
-	std::cout << item << std::endl;
+	std::cout << item << ' ' << &item << std::endl;
 }
 
 #endif

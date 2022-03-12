@@ -9,6 +9,8 @@
 #include "btree_apply_prefix.tpp"
 #include "btree_apply_infix.tpp"
 #include "btree_apply_suffix.tpp"
+#include "btree_search_item.tpp"
+#include "compare.tpp"
 #include "print_item.tpp"
 
 #endif
