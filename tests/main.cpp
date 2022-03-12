@@ -3,8 +3,10 @@
 
 int main(void)
 {
-	int item = 7;
 	ft::btree<int> *root = NULL;
-	btree_insert_data(&root, item, &compare);
-	std::cout << root->item << std::endl;
+	for (int i = 10; i < 20; i++)
+		btree_insert_data(&root, i, &compare);
+	for (int i = 0; i < 10; i++)
+		btree_insert_data(&root, i, &compare);
+	btree_apply_prefix(root, print_item);
 }
