@@ -9,4 +9,5 @@ int main(void)
 	for (int i = 0; i < 10; i++)
 		btree_insert_data(&root, i, &compare);
 	btree_apply_prefix(root, print_item);
+	btree_apply_infix(root, print_item);
 }

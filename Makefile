@@ -22,7 +22,10 @@ OBJS			:=	$(addprefix $(OBJS_DIR), $(notdir $(TESTS:.cpp=.o)))
 HEADER			:=	$(INCLUDES_DIR)btree.tpp\
 					$(INCLUDES_DIR)tests.hpp\
 					$(INCLUDES_DIR)btree_create_note.tpp\
-					$(INCLUDES_DIR)btree_insert_data.tpp
+					$(INCLUDES_DIR)btree_insert_data.tpp\
+					$(INCLUDES_DIR)btree_apply_prefix.tpp\
+					$(INCLUDES_DIR)btree_apply_infix.tpp\
+					$(INCLUDES_DIR)print_item.tpp
 
 INCLUDES		:= $(addprefix -I, $(INCLUDES_DIR))
 
