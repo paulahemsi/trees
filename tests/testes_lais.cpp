@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 18:21:27 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/03/13 20:30:45 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2022/03/14 20:18:00 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,10 @@ void	create_tree(void)
 	print_level(root, 3);
 	btree_insert_data<int>(&root, doze, &compare);
 	print_level(root, 3);
+
+	std::cout << "\n---TREE BY LEVEL---\n" << std::endl;
+	btree_apply_by_level(root, print_node_infos);
+	
 }
 
 int testes_lais(void)
