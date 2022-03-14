@@ -16,6 +16,7 @@ RM				:=	rm -rf
 SRC				:=
 
 TESTS			:=	$(TESTS_DIR)main.cpp\
+					$(TESTS_DIR)testes_lais.cpp
 
 OBJS			:=	$(addprefix $(OBJS_DIR), $(notdir $(TESTS:.cpp=.o)))
 
@@ -27,6 +28,7 @@ HEADER			:=	$(INCLUDES_DIR)btree.tpp\
 					$(INCLUDES_DIR)btree_apply_infix.tpp\
 					$(INCLUDES_DIR)btree_apply_suffix.tpp\
 					$(INCLUDES_DIR)btree_search_item.tpp\
+					$(INCLUDES_DIR)btree_level_count.tpp\
 					$(INCLUDES_DIR)compare.tpp\
 					$(INCLUDES_DIR)print_item.tpp
 
