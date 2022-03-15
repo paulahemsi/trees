@@ -15,3 +15,11 @@
 * [Binary Tree Level Order Traversal - Drawing The Parallel Between Trees & Graphs](https://www.youtube.com/watch?v=gcR28Hc2TNQ)
 * [Red Black Tree Insertion](https://www.youtube.com/watch?v=qA02XWRTBdw)
 * [Red Black Tree deletion | Data structure](https://www.youtube.com/watch?v=w5cvkTXY0vQ)
+
+
+## Tree Rotations
+
+The secret ingredient to most BBST algorithms is the clever usage of a **tree invariant** and **tree rotations**.
+
+A tree invariant is a property/rule you impose on you tree that it must meet after every operation. To ensure that the invariant is always satisfied a series of tree rotations are normally applied.
+From [Balanced binary search tree rotations](https://www.youtube.com/watch?v=q4fnJZr8ztY)
