@@ -66,8 +66,6 @@ void btree_apply_by_level(ft::btree<T> *root, void (*applyf)(T *item, int curren
 		while(true)
 		{
 			node = leaf_queue.front();
-			if (!node->item)
-				delete node;
 			leaf_queue.pop();
 			applyf(node->item, current_level, is_first);
 			is_first = false;
@@ -75,7 +73,11 @@ void btree_apply_by_level(ft::btree<T> *root, void (*applyf)(T *item, int curren
 				break;
 			else
 				add_children_to_queue(leaf_queue, node);
+			if (!node->item)
+				delete node;
 		}
+		if (!node->item)
+				delete node;
 	}
 }
 
