@@ -19,7 +19,14 @@
 
 ## Tree Rotations
 
+From [Balanced binary search tree rotations](https://www.youtube.com/watch?v=q4fnJZr8ztY)
+
 The secret ingredient to most BBST algorithms is the clever usage of a **tree invariant** and **tree rotations**.
 
 A tree invariant is a property/rule you impose on you tree that it must meet after every operation. To ensure that the invariant is always satisfied a series of tree rotations are normally applied.
-From [Balanced binary search tree rotations](https://www.youtube.com/watch?v=q4fnJZr8ztY)
+
+
+
+![image](https://user-images.githubusercontent.com/63563271/158483088-f4ac6e0a-39e1-4846-b0d9-845f6cea741a.png)
+
+
