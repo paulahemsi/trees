@@ -9,6 +9,7 @@
 
 # define CYAN			"\e[0;36m"
 # define RESET			"\e[0m"
+# define NEW_LINE		999
 
 template <typename T>
 void print_node_infos(T &item, int level, bool is_first)
@@ -17,7 +18,7 @@ void print_node_infos(T &item, int level, bool is_first)
 		std::cout << CYAN;
 	else
 		std::cout << RESET;
-	if(item == 999)
+	if(item == NEW_LINE)
 		std::cout << std::endl;
 	else
 		std::cout << item << "(" << level << ")" << std::endl;
@@ -33,12 +34,22 @@ void add_new_nodes_to_queue(std::queue<ft::btree<T> *> &leaf_queue, ft::btree<T>
 }
 
 template <typename T>
-void set_initial_values(ft::btree<T> *root, std::queue<ft::btree<T> *> &leaf_queue, int &current_level, bool &is_first, ft::btree<T> *new_line)
+void set_new_level(std::queue<ft::btree<T> *> & leaf_queue, int & current_level, bool & is_first, ft::btree<T> *new_line_node)
 {
-	leaf_queue.push(root);
-	leaf_queue.push(new_line);
 	is_first = true;
-	current_level = 0;
+	current_level++;
+	leaf_queue.push(new_line_node);
+}
+
+template <typename T>
+bool is_last_node(std::queue<ft::btree<T> *> & leaf_queue, int & current_level, bool & is_first, ft::btree<T> *new_line_node, ft::btree<T> *node)
+{
+	if (node->item != NEW_LINE)
+		return (false);
+	if (leaf_queue.empty())
+		return (true);
+	set_new_level(leaf_queue, current_level, is_first, new_line_node);
+	return (false);
 }
 
 template <typename T>
@@ -46,31 +57,26 @@ void btree_apply_by_level(ft::btree<T> *root, void (*applyf)(T &item, int curren
 {
 	if (!root)
 		return ;
-	ft::btree<T> *new_line = new ft::btree<T>;
-	new_line->item = 999;
-	new_line->left = NULL;
-	new_line->right = NULL;
 
+	bool is_first = true;
+	int current_level = 0;
+	int new_line = NEW_LINE;
+
+	ft::btree<T> *new_line_node = btree_create_node(new_line);
 	std::queue<ft::btree<T> *> leaf_queue;
-	ft::btree<T> *node = NULL;
-	bool is_first;
-	int current_level;
-	set_initial_values(root, leaf_queue, current_level, is_first, new_line);
 
+	leaf_queue.push(root);
+	leaf_queue.push(new_line_node);
+
+	ft::btree<T> *node = NULL;
 	while(true)
 	{
 		node = leaf_queue.front();
 		leaf_queue.pop();
 		applyf(node->item, current_level, is_first);
 		is_first = false;
-		if (node->item == 999)
-		{
-			if (leaf_queue.empty())
-				break;
-			is_first = true;
-			current_level++;
-			leaf_queue.push(new_line);
-		}
+		if (is_last_node(leaf_queue, current_level, is_first, new_line_node, node))
+			break;
 		else
 			add_new_nodes_to_queue(leaf_queue, node);
 	}
