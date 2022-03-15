@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 18:21:27 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/03/14 22:07:23 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2022/03/14 23:02:10 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,40 +38,29 @@ void print_level(ft::btree<T> *root, int expected)
 void	create_tree(void)
 {
 	ft::btree<int>	*root = NULL;
-
-
-	int dez = 10;
-	int cinco = 5;
-	int sete = 7;
-	int vinte = 20;
-	int vinte_e_cinco = 25;
-	int vinte_e_um = 21;
-	int trinta = 30;
-	int quinze = 15;
-	int doze = 12;
 	
-	btree_insert_data<int>(&root, &dez, &compare);
+	btree_insert_data<int>(&root, new int(10), &compare);
 	print_level(root, 0);
-	btree_insert_data<int>(&root, &cinco, &compare);
+	btree_insert_data<int>(&root, new int(5), &compare);
 	print_level(root, 1);
-	btree_insert_data<int>(&root, &sete, &compare);
+	btree_insert_data<int>(&root, new int(7), &compare);
 	print_level(root, 2);
-	btree_insert_data<int>(&root, &vinte, &compare);
+	btree_insert_data<int>(&root, new int(20), &compare);
 	print_level(root, 2);
-	btree_insert_data<int>(&root, &vinte_e_cinco, &compare);
+	btree_insert_data<int>(&root, new int(25), &compare);
 	print_level(root, 2);
-	btree_insert_data<int>(&root, &vinte_e_um, &compare);
+	btree_insert_data<int>(&root, new int(21), &compare);
 	print_level(root, 3);
-	btree_insert_data<int>(&root, &trinta, &compare);
+	btree_insert_data<int>(&root, new int(30), &compare);
 	print_level(root, 3);
-	btree_insert_data<int>(&root, &quinze, &compare);
+	btree_insert_data<int>(&root, new int(15), &compare);
 	print_level(root, 3);
-	btree_insert_data<int>(&root, &doze, &compare);
+	btree_insert_data<int>(&root, new int(12), &compare);
 	print_level(root, 3);
 
 	std::cout << "\n---TREE BY LEVEL---\n" << std::endl;
 	btree_apply_by_level(root, print_node_infos);
-	
+	btree_delete_tree(root);
 }
 
 int testes_lais(void)

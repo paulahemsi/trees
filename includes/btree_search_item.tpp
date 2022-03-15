@@ -8,9 +8,15 @@ template <typename T>
 T *btree_search_item(ft::btree<T> *root, T *data_ref,  bool (*compare)(T *, T *))
 {
 	if (root == NULL)
+	{
+		delete data_ref;
 		return (NULL);
+	}
 	if (*root->item == *data_ref)
+	{
+		delete data_ref;
 		return (root->item);
+	}
 	if (compare(data_ref, root->item))
 		return (btree_search_item(root->right, data_ref, compare));
 	else

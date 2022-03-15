@@ -15,6 +15,11 @@ namespace ft
 
 		btree(void): left(NULL), right(NULL), item(NULL) {}
 		btree(T *new_item): left(NULL), right(NULL), item(new_item) {}
+		~btree(void)
+		{
+			if (this->item)
+				delete item;
+		}
 	};
 	
 };

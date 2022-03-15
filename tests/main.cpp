@@ -38,5 +38,5 @@ int main(void)
 
 	std::cout << "\n---TREE BY LEVEL---\n" << std::endl;
 	btree_apply_by_level(root, print_node_infos);
-	testes_lais();
+	btree_delete_tree(root);
 }

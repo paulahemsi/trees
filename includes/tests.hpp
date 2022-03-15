@@ -12,6 +12,7 @@
 #include "btree_search_item.tpp"
 #include "btree_level_count.tpp"
 #include "btree_apply_by_level.tpp"
+#include "btree_delete_tree.tpp"
 #include "compare.tpp"
 #include "print_item.tpp"
 
