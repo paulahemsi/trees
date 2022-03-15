@@ -5,7 +5,7 @@
 #include "btree.tpp"
 
 template <typename T>
-void btree_apply_prefix(ft::btree<T> *root, void (*applyf)(T &))
+void btree_apply_prefix(ft::btree<T> *root, void (*applyf)(T *))
 {
 	applyf(root->item);
 	if (root->left)

@@ -6,7 +6,7 @@
 #include "btree.tpp"
 
 template <typename T>
-void btree_apply_infix(ft::btree<T> *root, void (*applyf)(T &))
+void btree_apply_infix(ft::btree<T> *root, void (*applyf)(T *))
 {
 	if (root->left)
 		btree_apply_infix(root->left, applyf);

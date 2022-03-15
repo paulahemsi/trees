@@ -5,9 +5,9 @@ int main(void)
 {
 	ft::btree<int> *root = NULL;
 	for (int i = 10; i < 20; i++)
-		btree_insert_data(&root, i, &compare);
+		btree_insert_data(&root, new int(i), &compare);
 	for (int i = 0; i < 10; i++)
-		btree_insert_data(&root, i, &compare);
+		btree_insert_data(&root, new int(i), &compare);
 
 	std::cout << "\n---INFIX---\n" << std::endl;
 	btree_apply_infix(root, print_item);
@@ -19,17 +19,17 @@ int main(void)
 	std::cout << "\n---SEARCH---\n" << std::endl;
 	for (int i = 10; i < 20; i++)
 	{
-		int * number = btree_search_item(root, i, &compare);
+		int * number = btree_search_item(root, new int(i), &compare);
 		std::cout << *number << " " << number << std::endl;
 	}
 	for (int i = 0; i < 10; i++)
 	{
-		int * number = btree_search_item(root, i, &compare);
+		int * number = btree_search_item(root, new int(i), &compare);
 		std::cout << *number << " " << number << std::endl;
 	}
 	for (int i = 99; i < 111; i++)
 	{
-		int * number = btree_search_item(root, i, &compare);
+		int * number = btree_search_item(root, new int(i), &compare);
 		if (number == NULL)
 			std::cout << i << " NOT IN TREE" << std::endl;
 		else

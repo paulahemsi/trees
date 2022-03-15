@@ -5,7 +5,7 @@
 #include "btree.tpp"
 
 template <typename T>
-ft::btree<T> *btree_create_node(T &new_item)
+ft::btree<T> *btree_create_node(T *new_item)
 {
 	ft::btree<int>	*new_node = new ft::btree<int>;
 	new_node->left = NULL;

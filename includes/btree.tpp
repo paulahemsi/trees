@@ -11,7 +11,10 @@ namespace ft
 	{
 		struct btree	*left;
 		struct btree	*right;
-		T				item;
+		T				*item;
+
+		btree(void): left(NULL), right(NULL), item(NULL) {}
+		btree(T *new_item): left(NULL), right(NULL), item(new_item) {}
 	};
 	
 };

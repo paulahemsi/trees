@@ -5,9 +5,9 @@
 #include <iostream>
 
 template <typename T>
-void print_item(T &item)
+void print_item(T *item)
 {
-	std::cout << item << ' ' << &item << std::endl;
+	std::cout << *item << ' ' << *item << std::endl;
 }
 
 #endif

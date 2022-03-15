@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 18:21:27 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/03/14 20:18:00 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2022/03/14 22:07:23 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,23 +50,23 @@ void	create_tree(void)
 	int quinze = 15;
 	int doze = 12;
 	
-	btree_insert_data<int>(&root, dez, &compare);
+	btree_insert_data<int>(&root, &dez, &compare);
 	print_level(root, 0);
-	btree_insert_data<int>(&root, cinco, &compare);
+	btree_insert_data<int>(&root, &cinco, &compare);
 	print_level(root, 1);
-	btree_insert_data<int>(&root, sete, &compare);
+	btree_insert_data<int>(&root, &sete, &compare);
 	print_level(root, 2);
-	btree_insert_data<int>(&root, vinte, &compare);
+	btree_insert_data<int>(&root, &vinte, &compare);
 	print_level(root, 2);
-	btree_insert_data<int>(&root, vinte_e_cinco, &compare);
+	btree_insert_data<int>(&root, &vinte_e_cinco, &compare);
 	print_level(root, 2);
-	btree_insert_data<int>(&root, vinte_e_um, &compare);
+	btree_insert_data<int>(&root, &vinte_e_um, &compare);
 	print_level(root, 3);
-	btree_insert_data<int>(&root, trinta, &compare);
+	btree_insert_data<int>(&root, &trinta, &compare);
 	print_level(root, 3);
-	btree_insert_data<int>(&root, quinze, &compare);
+	btree_insert_data<int>(&root, &quinze, &compare);
 	print_level(root, 3);
-	btree_insert_data<int>(&root, doze, &compare);
+	btree_insert_data<int>(&root, &doze, &compare);
 	print_level(root, 3);
 
 	std::cout << "\n---TREE BY LEVEL---\n" << std::endl;
