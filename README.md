@@ -26,7 +26,7 @@ The secret ingredient to most BBST algorithms is the clever usage of a **tree in
 A tree invariant is a property/rule you impose on you tree that it must meet after every operation. To ensure that the invariant is always satisfied a series of tree rotations are normally applied.
 
 
+![image](https://user-images.githubusercontent.com/63563271/158483683-7005f993-4900-432c-be2a-263e41c1c032.png)
 
-![image](https://user-images.githubusercontent.com/63563271/158483088-f4ac6e0a-39e1-4846-b0d9-845f6cea741a.png)
 
 
