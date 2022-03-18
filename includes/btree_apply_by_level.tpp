@@ -10,16 +10,34 @@
 # define RESET			"\e[0m"
 
 template <typename T>
-void print_node_infos(T *item, int level, bool is_first)
+void print_node_and_parent(ft::btree<T> *node, int level, bool is_first)
+{
+	(void) is_first;
+	std::cout << RESET;
+	if(!node->item)
+		std::cout << std::endl;
+	else
+	{
+		std::cout << *node->item << "(" << level << ")" << std::endl;
+		std::cout << CYAN;
+		if(node->parent)
+			std::cout << *node->parent->item << "(parent)" << std::endl;
+	}
+	
+
+}
+
+template <typename T>
+void print_node_infos(ft::btree<T> *node, int level, bool is_first)
 {
 	if (is_first)
 		std::cout << CYAN;
 	else
 		std::cout << RESET;
-	if(!item)
+	if(!node->item)
 		std::cout << std::endl;
 	else
-		std::cout << *item << "(" << level << ")" << std::endl;
+		std::cout << *node->item << "(" << level << ")" << std::endl;
 }
 
 template <typename T>
@@ -51,7 +69,7 @@ bool is_last_node(std::queue<ft::btree<T> *> &leaf_queue, int &current_level, bo
 }
 
 template <typename T>
-void btree_apply_by_level(ft::btree<T> *root, void (*applyf)(T *item, int current_level, bool is_first))
+void btree_apply_by_level(ft::btree<T> *root, void (*applyf)(ft::btree<T> *node, int current_level, bool is_first))
 {
 	if (root)
 	{
@@ -67,7 +85,7 @@ void btree_apply_by_level(ft::btree<T> *root, void (*applyf)(T *item, int curren
 		{
 			node = leaf_queue.front();
 			leaf_queue.pop();
-			applyf(node->item, current_level, is_first);
+			applyf(node, current_level, is_first);
 			is_first = false;
 			if (is_last_node(leaf_queue, current_level, is_first, node))
 				break;
