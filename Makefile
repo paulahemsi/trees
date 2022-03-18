@@ -29,6 +29,9 @@ HEADER			:=	$(INCLUDES_DIR)btree.tpp\
 					$(INCLUDES_DIR)btree_apply_suffix.tpp\
 					$(INCLUDES_DIR)btree_search_item.tpp\
 					$(INCLUDES_DIR)btree_level_count.tpp\
+					$(INCLUDES)btree_right_rotate.tpp\
+					$(INCLUDES)btree_left_rotate.tpp\
+					$(INCLUDES)btree_rotate_aux.tpp\
 					$(INCLUDES_DIR)compare.tpp\
 					$(INCLUDES_DIR)print_item.tpp
 
