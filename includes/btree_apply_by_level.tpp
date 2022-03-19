@@ -18,13 +18,12 @@ void print_node_and_parent(ft::btree<T> *node, int level, bool is_first)
 		std::cout << std::endl;
 	else
 	{
-		std::cout << *node->item << "(" << level << ")" << std::endl;
+		std::cout << *node->item << " (level " << level << ")";
 		std::cout << CYAN;
 		if(node->parent)
-			std::cout << *node->parent->item << "(parent)" << std::endl;
+			std::cout << " [parent " << *node->parent->item << "]";
+		std::cout << std::endl;
 	}
-	
-
 }
 
 template <typename T>

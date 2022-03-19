@@ -5,20 +5,35 @@
 #include "btree.tpp"
 #include "btree_rotate_aux.tpp"
 
+
 template <typename T>
-ft::btree<T> * btree_left_rotate(ft::btree<T> *node_to_rotate)
+void update_old_root_lr(ft::btree<T> *old_root, ft::btree<T> *new_root)
 {
-	ft::btree<T> *parent = node_to_rotate->parent;
-	ft::btree<T> *new_root = node_to_rotate->right;
-	node_to_rotate->right = new_root->left;
+	old_root->right = new_root->left;
 	if (new_root->left)
-		new_root->left->parent = node_to_rotate;
-	new_root->left = node_to_rotate;
-	node_to_rotate->parent = new_root;
+		new_root->left->parent = old_root;
+}
+
+template <typename T>
+void update_new_root_lr(ft::btree<T> *old_root, ft::btree<T> *new_root, ft::btree<T> *parent)
+{
+	new_root->left = old_root;
+	old_root->parent = new_root;
 	new_root->parent = parent;
 	if (new_root->parent)
-		update_parent_child(node_to_rotate, new_root);
+		update_parent_child(old_root, new_root);
+}
+
+template <typename T>
+ft::btree<T> * btree_left_rotate(ft::btree<T> *old_root)
+{
+	ft::btree<T> *parent = old_root->parent;
+	ft::btree<T> *new_root = old_root->right;
+
+	update_old_root_lr(old_root, new_root);
+	update_new_root_lr(old_root, new_root, parent);
 	return (new_root);
 }
+
 
 #endif
