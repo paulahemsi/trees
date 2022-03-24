@@ -5,12 +5,50 @@
 #include "tests.hpp"
 
 template <typename T>
+bool is_parent_left_child(ft::btree<T> *parent, ft::btree<T> *node)
+{
+	return (parent->left == node);
+}
+
+template <typename T>
+ft::btree<T> * get_sibling(ft::btree<T> *node)
+{
+	if (is_parent_left_child(node->parent, node))
+		return node->parent->right;
+	return node->parent->left;
+}
+
+template <typename T>
+bool sibling_is_red(ft::btree<T> *node)
+{
+	if (get_sibling(node)->color == RED)
+		return (true);
+	return (false);
+}
+
+template <typename T>
+void check_rules(ft::btree<T> *parent)
+{
+	if (parent->color == BLACK)
+		return ;
+	if (sibling_is_red(parent))
+		//recolor
+		//check parent's parent
+		//recolor
+		//return check_rules()
+	//rotations
+	//recolor
+	//return
+}
+
+template <typename T>
 void btree_insert_data_recursive(ft::btree<T> **root, ft::btree<T> *parent, T *new_item, bool (*compare)(T *, T *))
 {
 	if (*root == NULL)
 	{
 		*root = new ft::btree<int>(new_item);
 		(*root)->parent = parent;
+		check_rules(parent);
 		return ;
 	}
 	if (compare(new_item, (*root)->item))
