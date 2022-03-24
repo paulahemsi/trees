@@ -24,7 +24,7 @@ void btree_insert_data(ft::btree<T> **root, T *new_item, bool (*compare)(T *, T 
 {
 	if (*root == NULL)
 	{
-		*root = new ft::btree<int>(new_item);
+		*root = new ft::btree<int>(new_item, BLACK);
 		return ;
 	}
 	if (compare(new_item, (*root)->item))
