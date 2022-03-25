@@ -27,15 +27,38 @@ bool sibling_is_red(ft::btree<T> *node)
 }
 
 template <typename T>
+void recolor(ft::btree<T> *node)
+{
+	node->color = !node->color;
+}
+
+template <typename T>
+void node_is_root(ft::btree<T> *node)
+{
+	return (node->parent == NULL);
+}
+
+template <typename T>
+void recolor_node_and_sibling(ft::btree<T> *node)
+{
+	recolor(node);
+	recolor(get_sibling(node));
+}
+
+template <typename T>
 void check_rules(ft::btree<T> *node)
 {
 	if (node->parent->color == BLACK)
 		return ;
 	if (sibling_is_red(node->parent))
-		//recolor
-		//check parent's parent
-		//recolor
-		//return check_rules()
+	{
+		ft::btree<T>* grandma = node->parent->parent;
+		recolor_node_and_sibling(node->parent);
+		if(node_is_root(grandma))
+			return ;
+		recolor(grandma);
+		return check_rules(grandma);
+	}
 	//rotations
 	//recolor
 	//return
