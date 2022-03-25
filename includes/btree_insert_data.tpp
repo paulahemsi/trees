@@ -33,7 +33,7 @@ void recolor(ft::btree<T> *node)
 }
 
 template <typename T>
-void node_is_root(ft::btree<T> *node)
+bool node_is_root(ft::btree<T> *node)
 {
 	return (node->parent == NULL);
 }
