@@ -27,11 +27,11 @@ bool sibling_is_red(ft::btree<T> *node)
 }
 
 template <typename T>
-void check_rules(ft::btree<T> *parent)
+void check_rules(ft::btree<T> *node)
 {
-	if (parent->color == BLACK)
+	if (node->parent->color == BLACK)
 		return ;
-	if (sibling_is_red(parent))
+	if (sibling_is_red(node->parent))
 		//recolor
 		//check parent's parent
 		//recolor
@@ -48,7 +48,7 @@ void btree_insert_data_recursive(ft::btree<T> **root, ft::btree<T> *parent, T *n
 	{
 		*root = new ft::btree<int>(new_item);
 		(*root)->parent = parent;
-		check_rules(parent);
+		check_rules(*root);
 		return ;
 	}
 	if (compare(new_item, (*root)->item))
