@@ -21,7 +21,11 @@ ft::btree<T> * get_sibling(ft::btree<T> *node)
 template <typename T>
 bool sibling_is_red(ft::btree<T> *node)
 {
-	if (get_sibling(node)->color == RED)
+	ft::btree<T> *sibling = get_sibling(node);
+	
+	if (!sibling)
+		return (false);
+	if (sibling->color == RED)
 		return (true);
 	return (false);
 }
@@ -32,6 +36,7 @@ void check_rules(ft::btree<T> *node)
 	if (node->parent->color == BLACK)
 		return ;
 	if (sibling_is_red(node->parent))
+		return ;
 		//recolor
 		//check parent's parent
 		//recolor
