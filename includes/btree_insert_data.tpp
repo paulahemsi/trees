@@ -5,7 +5,7 @@
 #include "tests.hpp"
 
 template <typename T>
-bool is_parent_left_child(ft::btree<T> *parent, ft::btree<T> *node)
+bool is_left_child(ft::btree<T> *parent, ft::btree<T> *node)
 {
 	return (parent->left == node);
 }
@@ -13,7 +13,7 @@ bool is_parent_left_child(ft::btree<T> *parent, ft::btree<T> *node)
 template <typename T>
 ft::btree<T> * get_sibling(ft::btree<T> *node)
 {
-	if (is_parent_left_child(node->parent, node))
+	if (is_left_child(node->parent, node))
 		return node->parent->right;
 	return node->parent->left;
 }
