@@ -5,9 +5,17 @@ int main(void)
 {
 	ft::btree<int> *root = NULL;
 	for (int i = 10; i < 20; i++)
+	{
+		std::cout << "insert " << i << std::endl;
 		btree_insert_data(&root, new int(i), &compare);
+		btree_apply_by_level(root, print_rb_node_infos);
+	}
 	for (int i = 0; i < 10; i++)
+	{
+		std::cout << "insert " << i << std::endl;
 		btree_insert_data(&root, new int(i), &compare);
+		btree_apply_by_level(root, print_rb_node_infos);
+	}
 
 	std::cout << "\n---INFIX---\n" << std::endl;
 	btree_apply_infix(root, print_item);
