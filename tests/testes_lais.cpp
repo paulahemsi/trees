@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 18:21:27 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/03/17 23:09:37 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2022/03/26 20:38:21 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	create_tree(void)
 	btree_apply_by_level(root, print_node_and_parent);
 
 	std::cout << "\n---LEFT ROTATE---\n" << std::endl;
-	btree_left_rotate(btree_search_node(root, new int(15), &compare));
+	btree_left_rotate(btree_search_node(root, new int(25), &compare));
 
 	std::cout << "\n---TREE BY LEVEL---\n" << std::endl;
 	btree_apply_by_level(root, print_node_infos);
