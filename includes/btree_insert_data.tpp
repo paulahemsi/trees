@@ -47,6 +47,25 @@ bool sibling_is_red(ft::btree<T> *node)
 }
 
 template <typename T>
+void recolor(ft::btree<T> *node)
+{
+	node->color = !node->color;
+}
+
+template <typename T>
+bool node_is_root(ft::btree<T> *node)
+{
+	return (node->parent == NULL);
+}
+
+template <typename T>
+void recolor_node_and_sibling(ft::btree<T> *node)
+{
+	recolor(node);
+	recolor(get_sibling(node));
+}
+
+template <typename T>
 void check_rules(ft::btree<T> *node)
 {
 	ft::btree<T> *parent = node->parent;
@@ -55,31 +74,30 @@ void check_rules(ft::btree<T> *node)
 	if (parent->color == BLACK)
 		return ;
 	if (sibling_is_red(parent))
-		//recolor
-		//check parent's parent
-		//recolor
-		//return check_rules()
-		return ;
+	{
+		recolor_node_and_sibling(parent);
+		if(node_is_root(grandma))
+			return ;
+		recolor(grandma);
+		return check_rules(grandma);
+	}
 	//rotations
 	//recolor
 	//return
 	
-	// se a se o pai e o filho não estão do mesmo lado
 	if (is_left_child(grandma, parent) != is_left_child (parent, node))
 	{
-		// 1 rotação no pai
 		if (is_left_child(parent, node))
 			parent = btree_right_rotate(parent);
 		else
 			parent = btree_left_rotate(parent);
-		// e depois na avo
 	}
+	recolor(grandma);
+	recolor(parent);
 	if (is_left_child(grandma, parent))
 		grandma = btree_right_rotate(grandma);
 	else
 		grandma = btree_left_rotate(grandma);
-	// se não
-			// 1 rotação do lado oposto na avo
 }
 
 template <typename T>
