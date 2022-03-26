@@ -5,6 +5,22 @@
 #include "tests.hpp"
 
 template <typename T>
+ft::btree<T> * get_root(ft::btree<T> *node)
+{
+	ft::btree<T> *tmp = node;
+
+	while (tmp->parent)
+		tmp = tmp->parent;
+	return (tmp);
+}
+
+template <typename T>
+bool is_tree_root(ft::btree<T> *node)
+{
+	return (node->parent == NULL);
+}
+
+template <typename T>
 bool is_left_child(ft::btree<T> *parent, ft::btree<T> *node)
 {
 	return (parent->left == node);
@@ -33,17 +49,37 @@ bool sibling_is_red(ft::btree<T> *node)
 template <typename T>
 void check_rules(ft::btree<T> *node)
 {
-	if (node->parent->color == BLACK)
+	ft::btree<T> *parent = node->parent;
+	ft::btree<T> *grandma = parent->parent;
+	
+	if (parent->color == BLACK)
 		return ;
-	if (sibling_is_red(node->parent))
-		return ;
+	if (sibling_is_red(parent))
 		//recolor
 		//check parent's parent
 		//recolor
 		//return check_rules()
+		return ;
 	//rotations
 	//recolor
 	//return
+	
+	// se a se o pai e o filho não estão do mesmo lado
+	if (is_left_child(grandma, parent) != is_left_child (parent, node))
+	{
+		// 1 rotação no pai
+		if (is_left_child(parent, node))
+			parent = btree_right_rotate(parent);
+		else
+			parent = btree_left_rotate(parent);
+		// e depois na avo
+	}
+	if (is_left_child(grandma, parent))
+		grandma = btree_right_rotate(grandma);
+	else
+		grandma = btree_left_rotate(grandma);
+	// se não
+			// 1 rotação do lado oposto na avo
 }
 
 template <typename T>
@@ -74,6 +110,8 @@ void btree_insert_data(ft::btree<T> **root, T *new_item, bool (*compare)(T *, T 
 		btree_insert_data_recursive(&(*root)->right, *root, new_item, compare);
 	else
 		btree_insert_data_recursive(&(*root)->left, *root, new_item, compare);
+	if (!is_tree_root(*root))
+		*root = get_root(*root);
 }
 
 #endif
