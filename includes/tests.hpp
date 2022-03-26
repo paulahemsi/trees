@@ -5,6 +5,9 @@
 #include <iostream>
 #include "btree.tpp"
 
+#include "btree_right_rotate.tpp"
+#include "btree_left_rotate.tpp"
+
 #include "btree_create_node.tpp"
 #include "btree_insert_data.tpp"
 #include "btree_search_item.tpp"
@@ -17,8 +20,6 @@
 #include "btree_apply_suffix.tpp"
 #include "btree_apply_by_level.tpp"
 
-#include "btree_right_rotate.tpp"
-#include "btree_left_rotate.tpp"
 
 #include "compare.tpp"
 #include "print_item.tpp"

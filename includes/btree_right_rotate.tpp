@@ -24,18 +24,15 @@ void update_new_root_rr(ft::btree<T> *old_root, ft::btree<T> *new_root, ft::btre
 		update_parent_child(old_root, new_root);
 }
 
-namespace ft
+template <typename T>
+ft::btree<T> * btree_right_rotate(ft::btree<T> *old_root)
 {
-	template <typename T>
-	ft::btree<T> * btree_right_rotate(ft::btree<T> *old_root)
-	{
-		ft::btree<T> *parent = old_root->parent;
-		ft::btree<T> *new_root = old_root->left;
+	ft::btree<T> *parent = old_root->parent;
+	ft::btree<T> *new_root = old_root->left;
 
-		update_old_root_rr(old_root, new_root);
-		update_new_root_rr(old_root, new_root, parent);
-		return (new_root);
-	}
+	update_old_root_rr(old_root, new_root);
+	update_new_root_rr(old_root, new_root, parent);
+	return (new_root);
 }
 
 #endif
