@@ -27,17 +27,17 @@ int main(void)
 	std::cout << "\n---SEARCH---\n" << std::endl;
 	for (int i = 10; i < 20; i++)
 	{
-		int * number = btree_search_item(root, new int(i), &compare);
+		int * number = btree_search_item(root, i, &compare);
 		std::cout << *number << " " << number << std::endl;
 	}
 	for (int i = 0; i < 10; i++)
 	{
-		int * number = btree_search_item(root, new int(i), &compare);
+		int * number = btree_search_item(root, i, &compare);
 		std::cout << *number << " " << number << std::endl;
 	}
 	for (int i = 99; i < 111; i++)
 	{
-		int * number = btree_search_item(root, new int(i), &compare);
+		int * number = btree_search_item(root, i, &compare);
 		if (number == NULL)
 			std::cout << i << " NOT IN TREE" << std::endl;
 		else
