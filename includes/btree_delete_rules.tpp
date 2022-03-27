@@ -8,10 +8,18 @@ template <typename T>
 void	black_sibling_case(ft::btree<T> *node)
 {
 	ft::btree<T> *sibling = get_sibling(node);
+	ft::btree<T> *parent = node->parent;
 	
 	// filhas da irmã pretas
 	if (sibling->left->color == BLACK && sibling->right->color == BLACK)
+	{
+		node->color = BLACK;
+		sibling->color = RED;
+		parent->color++;
+		if (parent->color == DB)
+			deal_db(parent);
 		return ;
+	}
 	
 	// filha na direção do DB vermelha e filha na outra direção preta
 	if ((is_left_child(node->parent, node)
