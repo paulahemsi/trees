@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 18:21:27 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/03/27 12:04:34 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2022/03/27 18:48:35 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,19 @@ void	create_tree(void)
 	btree_apply_by_level(root, print_rb_node_infos);
 	
 	std::cout << "\n---DELETE 21---\n" << std::endl;
-	delete (btree_delete(root,21));
+	delete (btree_delete(&root,21));
 
 	std::cout << "\n---NODE, LEVEL AND PARENT---\n" << std::endl;
 	btree_apply_by_level(root, print_rb_node_infos);
 	
 	std::cout << "\n---DELETE 15---\n" << std::endl;
-	delete (btree_delete(root,15));
+	delete (btree_delete(&root,15));
 
 	std::cout << "\n---NODE, LEVEL AND PARENT---\n" << std::endl;
 	btree_apply_by_level(root, print_rb_node_infos);
 	
 	std::cout << "\n---DELETE 20---\n" << std::endl;
-	delete (btree_delete(root,20));
+	delete (btree_delete(&root,20));
 
 	std::cout << "\n---NODE, LEVEL AND PARENT---\n" << std::endl;
 	btree_apply_by_level(root, print_rb_node_infos);
