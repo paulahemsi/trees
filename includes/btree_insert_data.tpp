@@ -107,7 +107,7 @@ void btree_insert_data_recursive(ft::btree<T> **root, ft::btree<T> *parent, T *n
 	{
 		*root = new ft::btree<int>(new_item);
 		(*root)->parent = parent;
-		//check_rules(*root);
+		check_rules(*root);
 		return ;
 	}
 	if (compare(new_item, (*root)->item))
