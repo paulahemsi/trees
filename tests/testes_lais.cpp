@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 18:21:27 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/03/26 22:12:58 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2022/03/26 22:29:39 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,27 @@ void	create_tree(void)
 	std::cout << "insert " << 12 << std::endl;
 	btree_insert_data(&root, new int(12), &compare);
 	btree_apply_by_level(root, print_rb_node_infos);
+	
+	std::cout << "\n---DELETE 21---\n" << std::endl;
+	btree_delete(root, new int(21));
+
+	std::cout << "\n---NODE, LEVEL AND PARENT---\n" << std::endl;
+	btree_apply_by_level(root, print_rb_node_infos);
+	
+	std::cout << "\n---DELETE 15---\n" << std::endl;
+	btree_delete(root, new int(15));
+
+	std::cout << "\n---NODE, LEVEL AND PARENT---\n" << std::endl;
+	btree_apply_by_level(root, print_rb_node_infos);
+	
+	std::cout << "\n---DELETE 20---\n" << std::endl;
+	btree_delete(root, new int(20));
 
 	std::cout << "\n---NODE, LEVEL AND PARENT---\n" << std::endl;
 	btree_apply_by_level(root, print_rb_node_infos);
 	
 	std::cout << "\n---RIGHT ROTATE---\n" << std::endl;
-	btree_right_rotate(btree_search_node(root, new int(20), &compare));
+	btree_right_rotate(btree_search_node(root, new int(07), &compare));
 
 	std::cout << "\n---NODE, LEVEL AND PARENT---\n" << std::endl;
 	btree_apply_by_level(root, print_rb_node_infos);
@@ -82,17 +97,6 @@ void	create_tree(void)
 	std::cout << "\n---NODE, LEVEL AND PARENT---\n" << std::endl;
 	btree_apply_by_level(root, print_rb_node_infos);
 	
-	std::cout << "\n---DELETE 21---\n" << std::endl;
-	btree_delete(root, new int(21));
-
-	std::cout << "\n---NODE, LEVEL AND PARENT---\n" << std::endl;
-	btree_apply_by_level(root, print_rb_node_infos);	
-	
-	std::cout << "\n---DELETE 15---\n" << std::endl;
-	btree_delete(root, new int(15));
-
-	std::cout << "\n---NODE, LEVEL AND PARENT---\n" << std::endl;
-	btree_apply_by_level(root, print_rb_node_infos);	
 	
 	
 	btree_delete_tree(root);
