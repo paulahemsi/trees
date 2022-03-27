@@ -50,6 +50,8 @@ void delete_node(ft::btree<T> *node)
 		node->parent->left = NULL;
 	else
 		node->parent->right = NULL;
+	if (node->item)
+		delete node->item;
 	delete node;
 }
 
