@@ -51,13 +51,13 @@ int main(void)
 	btree_apply_by_level(root, print_node_and_parent);
 
 	std::cout << "\n---DELETE---\n" << std::endl;
-	for (int i = 5; i < 10; i++)
+	for (int i = 10; i < 15; i++)
 	{
 		std::cout << "delete " << i << std::endl;
 		delete (btree_delete(&root, i));
 		btree_apply_by_level(root, print_rb_node_infos);
 	}
-	for (int i = 10; i < 15; i++)
+	for (int i = 15; i < 20; i++)
 	{
 		std::cout << "delete " << i << std::endl;
 		delete (btree_delete(&root, i));
@@ -69,7 +69,7 @@ int main(void)
 		delete (btree_delete(&root, i));
 		btree_apply_by_level(root, print_rb_node_infos);
 	}
-	for (int i = 15; i < 20; i++)
+	for (int i = 5; i < 10; i++)
 	{
 		std::cout << "delete " << i << std::endl;
 		delete (btree_delete(&root, i));
