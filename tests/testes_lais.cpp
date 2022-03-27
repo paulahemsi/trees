@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 18:21:27 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/03/26 22:06:39 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2022/03/26 22:12:58 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,33 @@ void	create_tree(void)
 {
 	ft::btree<int>	*root = NULL;
 	
-	btree_insert_data<int>(&root, new int(10), &compare);
-	print_level(root, 0);
-	btree_insert_data<int>(&root, new int(5), &compare);
-	print_level(root, 1);
-	btree_insert_data<int>(&root, new int(7), &compare);
-	print_level(root, 2);
-	btree_insert_data<int>(&root, new int(20), &compare);
-	print_level(root, 2);
-	btree_insert_data<int>(&root, new int(25), &compare);
-	print_level(root, 2);
-	btree_insert_data<int>(&root, new int(21), &compare);
-	print_level(root, 3);
-	btree_insert_data<int>(&root, new int(30), &compare);
-	print_level(root, 3);
-	btree_insert_data<int>(&root, new int(15), &compare);
-	print_level(root, 3);
-	btree_insert_data<int>(&root, new int(12), &compare);
-	print_level(root, 3);
+	std::cout << "insert " << 10 << std::endl;
+	btree_insert_data(&root, new int(10), &compare);
+	btree_apply_by_level(root, print_rb_node_infos);
+	std::cout << "insert " << 5 << std::endl;
+	btree_insert_data(&root, new int(5), &compare);
+	btree_apply_by_level(root, print_rb_node_infos);
+	std::cout << "insert " << 7 << std::endl;
+	btree_insert_data(&root, new int(7), &compare);
+	btree_apply_by_level(root, print_rb_node_infos);
+	std::cout << "insert " << 20 << std::endl;
+	btree_insert_data(&root, new int(20), &compare);
+	btree_apply_by_level(root, print_rb_node_infos);
+	std::cout << "insert " << 25 << std::endl;
+	btree_insert_data(&root, new int(25), &compare);
+	btree_apply_by_level(root, print_rb_node_infos);
+	std::cout << "insert " << 21 << std::endl;
+	btree_insert_data(&root, new int(21), &compare);
+	btree_apply_by_level(root, print_rb_node_infos);
+	std::cout << "insert " << 30 << std::endl;
+	btree_insert_data(&root, new int(30), &compare);
+	btree_apply_by_level(root, print_rb_node_infos);
+	std::cout << "insert " << 15 << std::endl;
+	btree_insert_data(&root, new int(15), &compare);
+	btree_apply_by_level(root, print_rb_node_infos);
+	std::cout << "insert " << 12 << std::endl;
+	btree_insert_data(&root, new int(12), &compare);
+	btree_apply_by_level(root, print_rb_node_infos);
 
 	std::cout << "\n---NODE, LEVEL AND PARENT---\n" << std::endl;
 	btree_apply_by_level(root, print_rb_node_infos);
