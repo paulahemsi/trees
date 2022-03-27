@@ -38,7 +38,7 @@ template <typename T>
 ft::btree<T> * replace_content(ft::btree<T> *node)
 {
 	ft::btree<T> * node_to_replace = find_neighbor(node);
-	//delete node->item;
+	delete node->item;
 	node->item = node_to_replace->item;
 	return (node_to_replace);
 }
