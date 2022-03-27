@@ -4,9 +4,9 @@
 
 #include <iostream>
 
-#define	RED		0
-#define	BLACK	1
-#define	DB		2
+#define	RED				0
+#define	BLACK			1
+#define	DOUBLE_BLACK	2
 
 namespace ft
 {
