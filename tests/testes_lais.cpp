@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 18:21:27 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/03/26 22:29:39 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2022/03/27 12:04:34 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,31 +68,31 @@ void	create_tree(void)
 	btree_apply_by_level(root, print_rb_node_infos);
 	
 	std::cout << "\n---DELETE 21---\n" << std::endl;
-	btree_delete(root, new int(21));
+	delete (btree_delete(root,21));
 
 	std::cout << "\n---NODE, LEVEL AND PARENT---\n" << std::endl;
 	btree_apply_by_level(root, print_rb_node_infos);
 	
 	std::cout << "\n---DELETE 15---\n" << std::endl;
-	btree_delete(root, new int(15));
+	delete (btree_delete(root,15));
 
 	std::cout << "\n---NODE, LEVEL AND PARENT---\n" << std::endl;
 	btree_apply_by_level(root, print_rb_node_infos);
 	
 	std::cout << "\n---DELETE 20---\n" << std::endl;
-	btree_delete(root, new int(20));
+	delete (btree_delete(root,20));
 
 	std::cout << "\n---NODE, LEVEL AND PARENT---\n" << std::endl;
 	btree_apply_by_level(root, print_rb_node_infos);
 	
 	std::cout << "\n---RIGHT ROTATE---\n" << std::endl;
-	btree_right_rotate(btree_search_node(root, new int(07), &compare));
+	btree_right_rotate(btree_search_node(root, 07, &compare));
 
 	std::cout << "\n---NODE, LEVEL AND PARENT---\n" << std::endl;
 	btree_apply_by_level(root, print_rb_node_infos);
 	
 	std::cout << "\n---LEFT ROTATE---\n" << std::endl;
-	btree_left_rotate(btree_search_node(root, new int(25), &compare));
+	btree_left_rotate(btree_search_node(root, 25, &compare));
 
 	std::cout << "\n---NODE, LEVEL AND PARENT---\n" << std::endl;
 	btree_apply_by_level(root, print_rb_node_infos);
