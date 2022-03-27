@@ -117,6 +117,14 @@ void btree_insert_data_recursive(ft::btree<T> **root, ft::btree<T> *parent, T *n
 }
 
 template <typename T>
+void	update_root(ft::btree<T> **root)
+{
+	if (is_tree_root(*root))
+		return ;
+	*root = get_root(*root);
+}
+
+template <typename T>
 void btree_insert_data(ft::btree<T> **root, T *new_item, bool (*compare)(T *, T *))
 {
 	if (*root == NULL)
@@ -128,8 +136,7 @@ void btree_insert_data(ft::btree<T> **root, T *new_item, bool (*compare)(T *, T 
 		btree_insert_data_recursive(&(*root)->right, *root, new_item, compare);
 	else
 		btree_insert_data_recursive(&(*root)->left, *root, new_item, compare);
-	if (!is_tree_root(*root))
-		*root = get_root(*root);
+	update_root(root);
 }
 
 #endif
