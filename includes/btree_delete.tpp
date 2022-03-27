@@ -63,11 +63,11 @@ void btree_delete_recursive(ft::btree<T> *node_to_delete)
 }
 
 template <typename T>
-void    update_root(ft::btree<T> **root)
+void	update_root(ft::btree<T> **root)
 {
-    if (is_tree_root(*root))
-        return ;
-    *root = get_root(*root);
+	if (is_tree_root(*root))
+		return ;
+	*root = get_root(*root);
 }
 
 template <typename T>
