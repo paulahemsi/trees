@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 18:21:27 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/03/26 20:38:21 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2022/03/26 21:43:46 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,23 @@ void	create_tree(void)
 	btree_apply_by_level(root, print_node_infos);
 	std::cout << "\n---NODE AND PARENT---\n" << std::endl;
 	btree_apply_by_level(root, print_node_and_parent);
+
+	std::cout << "\n---DELETE 21---\n" << std::endl;
+	btree_delete(root, new int(21));
+
+	std::cout << "\n---TREE BY LEVEL---\n" << std::endl;
+	btree_apply_by_level(root, print_node_infos);
+	std::cout << "\n---NODE AND PARENT---\n" << std::endl;
+	btree_apply_by_level(root, print_node_and_parent);
+	
+	std::cout << "\n---DELETE 15---\n" << std::endl;
+	btree_delete(root, new int(15));
+
+	std::cout << "\n---TREE BY LEVEL---\n" << std::endl;
+	btree_apply_by_level(root, print_node_infos);
+	std::cout << "\n---NODE AND PARENT---\n" << std::endl;
+	btree_apply_by_level(root, print_node_and_parent);
+	
 	
 	btree_delete_tree(root);
 }
