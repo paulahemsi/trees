@@ -4,16 +4,17 @@
 
 #include <iostream>
 
-#define	RED		false
-#define	BLACK	true
+#define	RED				0
+#define	BLACK			1
+#define	DOUBLE_BLACK	2
 
 namespace ft
 {
+	typedef	int	t_color;
+
 	template <typename T>
 	struct btree
 	{
-		typedef	bool	t_color;
-
 		struct btree	*left;
 		struct btree	*right;
 		struct btree	*parent;
