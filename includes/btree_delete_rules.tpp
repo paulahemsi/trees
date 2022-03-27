@@ -7,10 +7,25 @@ void deal_db(ft::btree<T> *node);
 template <typename T>
 void	black_sibling_case(ft::btree<T> *node)
 {
-	(void)node;
+	ft::btree<T> *sibling = get_sibling(node);
+	
 	// filhas da irmã pretas
+	if (sibling->left->color == BLACK && sibling->right->color == BLACK)
+		return ;
+	
 	// filha na direção do DB vermelha e filha na outra direção preta
+	if ((is_left_child(node->parent, node)
+			&& (sibling->left->color == RED && sibling->right->color == BLACK))
+		|| (!is_left_child(node->parent, node)
+			&& (sibling->left->color == BLACK && sibling->right->color == RED) ))
+	{
+		return ;
+	}
+	
 	// filha na direção oposta ao DB vermelha (a outra pouco importa)
+	if ((is_left_child(node->parent, node) && sibling->right->color == RED)
+		|| (!is_left_child(node->parent, node) && sibling->left->color == RED))
+		return ;
 }
 
 template <typename T>
