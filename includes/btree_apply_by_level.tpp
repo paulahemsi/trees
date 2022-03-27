@@ -6,9 +6,6 @@
 #include "tests.hpp"
 #include <queue>
 
-# define CYAN			"\e[0;36m"
-# define RESET			"\e[0m"
-
 template <typename T>
 void print_node_and_parent(ft::btree<T> *node, int level, bool is_first)
 {

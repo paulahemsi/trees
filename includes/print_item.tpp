@@ -4,10 +4,6 @@
 
 #include <iostream>
 
-# define C_RED			"\e[0;31m"
-# define RESET			"\e[0m"
-# define BOLD			"\e[1m"
-
 template <typename T>
 void print_item(T *item)
 {
