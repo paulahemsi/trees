@@ -29,10 +29,10 @@ ft::btree<T> * find_predecessor(ft::btree<T> *node)
 template <typename T>
 ft::btree<T> * find_neighbor(ft::btree<T> *node)
 {
-	if (node->right)
-		return (find_successor(node->right));
-	else
+	if (node->left)
 		return (find_predecessor(node->left));
+	else
+		return (find_successor(node->right));
 }
 
 template <typename T>
