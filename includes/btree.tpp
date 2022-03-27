@@ -10,11 +10,11 @@
 
 namespace ft
 {
+	typedef	int	t_color;
+
 	template <typename T>
 	struct btree
 	{
-		typedef	int	t_color;
-
 		struct btree	*left;
 		struct btree	*right;
 		struct btree	*parent;

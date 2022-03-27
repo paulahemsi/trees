@@ -39,8 +39,7 @@ void	black_sibling_case(ft::btree<T> *node)
 template <typename T>
 void swap_node_color(ft::btree<T> *node1, ft::btree<T> *node2)
 {
-	//mudar na struct para poder usar t_color aqui??
-	int tmp;
+	ft::t_color tmp;
 
 	tmp = node1->color;
 	node1->color = node2->color;
