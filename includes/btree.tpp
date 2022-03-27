@@ -4,15 +4,16 @@
 
 #include <iostream>
 
-#define	RED		false
-#define	BLACK	true
+#define	RED		0
+#define	BLACK	1
+#define	DB		2
 
 namespace ft
 {
 	template <typename T>
 	struct btree
 	{
-		typedef	bool	t_color;
+		typedef	int	t_color;
 
 		struct btree	*left;
 		struct btree	*right;
