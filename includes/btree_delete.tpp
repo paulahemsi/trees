@@ -1,4 +1,7 @@
 
+#ifndef BTREE_DELETE_TPP
+#define BTREE_DELETE_TPP
+
 #include "tests.hpp"
 #include "btree_delete_rules.tpp"
 
@@ -87,3 +90,5 @@ T * btree_delete(ft::btree<T> **root, T data_ref)
 	}
 	return (item_to_return);
 }
+
+#endif
