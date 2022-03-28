@@ -11,7 +11,7 @@ void btree_apply_suffix(ft::btree<T> *root, void (*applyf)(T *))
         return;
     btree_apply_suffix(root->left, applyf);
     btree_apply_suffix(root->right, applyf);
-    applyf(root->element);
+    applyf(root->item);
 }
 
 #endif

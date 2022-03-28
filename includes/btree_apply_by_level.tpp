@@ -67,32 +67,31 @@ bool is_last_node(std::queue<ft::btree<T> *> &leaf_queue, int &current_level, bo
 template <typename T>
 void btree_apply_by_level(ft::btree<T> *root, void (*applyf)(ft::btree<T> *node, int current_level, bool is_first))
 {
-	if (root)
+	if (!root)
+		return ;
+	bool is_first = true;
+	int current_level = 0;
+
+	std::queue<ft::btree<T> *> leaf_queue;
+	leaf_queue.push(root);
+	leaf_queue.push(new ft::btree<int>());
+
+	ft::btree<T> *node = NULL;
+	while(true)
 	{
-		bool is_first = true;
-		int current_level = 0;
-
-		std::queue<ft::btree<T> *> leaf_queue;
-		leaf_queue.push(root);
-		leaf_queue.push(new ft::btree<int>());
-
-		ft::btree<T> *node = NULL;
-		while(true)
-		{
-			node = leaf_queue.front();
-			leaf_queue.pop();
-			applyf(node, current_level, is_first);
-			is_first = false;
-			if (is_last_node(leaf_queue, current_level, is_first, node))
-				break;
-			else
-				add_children_to_queue(leaf_queue, node);
-			if (!node->item)
-				delete node;
-		}
+		node = leaf_queue.front();
+		leaf_queue.pop();
+		applyf(node, current_level, is_first);
+		is_first = false;
+		if (is_last_node(leaf_queue, current_level, is_first, node))
+			break;
+		else
+			add_children_to_queue(leaf_queue, node);
 		if (!node->item)
-				delete node;
+			delete node;
 	}
+	if (!node->item)
+			delete node;
 }
 
 #endif

@@ -17,8 +17,9 @@ int btree_level_count(ft::btree<T> *root)
 {
 	if (!root || (!root->left && !root->right))
 		return (0);
-	else
-		return (max_depth(btree_level_count(root->left), btree_level_count(root->right)) + 1);
+	int left_level = btree_level_count(root->left);
+    int right_level = btree_level_count(root->right);
+    return (1 + max_depth(left_level, right_level));
 }
 
 #endif

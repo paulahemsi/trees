@@ -11,7 +11,7 @@ void btree_apply_infix(ft::btree<T> *root, void (*applyf)(T *))
 	if (!root)
         return;
     btree_apply_infix(root->left, applyf);
-    applyf(root->element);
+    applyf(root->item);
     btree_apply_infix(root->right, applyf);
 }
 
