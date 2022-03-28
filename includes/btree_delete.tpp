@@ -63,14 +63,6 @@ void btree_delete_recursive(ft::btree<T> *node_to_delete)
 }
 
 template <typename T>
-void	update_root(ft::btree<T> **root)
-{
-	if (is_tree_root(*root))
-		return ;
-	*root = get_root(*root);
-}
-
-template <typename T>
 bool is_last_node(ft::btree<T> *node)
 {
 	return (is_tree_root(node) && is_leaf(node));
