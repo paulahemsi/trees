@@ -13,15 +13,12 @@ CFLAGS			+=	-std=c++98
 
 RM				:=	rm -rf
 
-SRC				:=
-
-TESTS			:=	$(TESTS_DIR)main.cpp\
-					$(TESTS_DIR)testes_lais.cpp
+TESTS			:=	$(TESTS_DIR)main.cpp
 
 OBJS			:=	$(addprefix $(OBJS_DIR), $(notdir $(TESTS:.cpp=.o)))
 
 HEADER			:=	$(INCLUDES_DIR)btree.tpp\
-					$(INCLUDES_DIR)tests.hpp\
+					$(INCLUDES_DIR)btree.hpp\
 					$(INCLUDES_DIR)btree_create_note.tpp\
 					$(INCLUDES_DIR)btree_insert_data.tpp\
 					$(INCLUDES_DIR)btree_apply_prefix.tpp\
