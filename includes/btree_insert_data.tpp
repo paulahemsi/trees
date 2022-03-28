@@ -76,15 +76,11 @@ void check_rules(ft::btree<T> *node)
 	if (sibling_is_red(parent))
 	{
 		recolor_node_and_sibling(parent);
-		if(node_is_root(grandma))
+		if (node_is_root(grandma))
 			return ;
 		recolor(grandma);
 		return check_rules(grandma);
 	}
-	//rotations
-	//recolor
-	//return
-	
 	if (is_left_child(grandma, parent) != is_left_child (parent, node))
 	{
 		if (is_left_child(parent, node))
