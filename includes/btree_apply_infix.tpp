@@ -8,11 +8,11 @@
 template <typename T>
 void btree_apply_infix(ft::btree<T> *root, void (*applyf)(T *))
 {
-	if (root->left)
-		btree_apply_infix(root->left, applyf);
-	applyf(root->item);
-	if (root->right)
-		btree_apply_infix(root->right, applyf);
+	if (!root)
+        return;
+    btree_apply_infix(root->left, applyf);
+    applyf(root->element);
+    btree_apply_infix(root->right, applyf);
 }
 
 #endif
